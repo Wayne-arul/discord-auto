@@ -114,14 +114,14 @@ contents = []
 # send_message("13:57:00", "991611117518454784")
 # receive_message("14:53:00", 1, "710080535116120080")
 
-p1 = multiprocessing.Process(target=send_message, args=("11:00:00", "894092194363883561"))
-p2 = multiprocessing.Process(target=send_message, args=("11:10:00", "894147192267362334"))
-p3 = multiprocessing.Process(target=send_message, args=("11:20:00", "894092196054196264"))
-p4 = multiprocessing.Process(target=send_message, args=("11:30:00", "894092197111148584"))
-p5 = multiprocessing.Process(target=send_message, args=("11:40:00", "894092198050689094"))
-p6 = multiprocessing.Process(target=send_message, args=("11:50:00", "894092199338336286"))
-p7 = multiprocessing.Process(target=send_message, args=("12:00:00", "894092200311402536"))
-p8 = multiprocessing.Process(target=send_message, args=("12:10:00", "894147313856036865"))
+p1 = multiprocessing.Process(target=send_message, args=("10:59:00", "894092194363883561"))
+p2 = multiprocessing.Process(target=send_message, args=("11:09:00", "894147192267362334"))
+p3 = multiprocessing.Process(target=send_message, args=("11:19:00", "894092196054196264"))
+p4 = multiprocessing.Process(target=send_message, args=("11:29:00", "894092197111148584"))
+p5 = multiprocessing.Process(target=send_message, args=("11:39:00", "894092198050689094"))
+p6 = multiprocessing.Process(target=send_message, args=("11:49:00", "894092199338336286"))
+p7 = multiprocessing.Process(target=send_message, args=("11:59:00", "894092200311402536"))
+p8 = multiprocessing.Process(target=send_message, args=("12:09:00", "894147313856036865"))
 
 
 if __name__ == '__main__':

@@ -32,9 +32,9 @@ def send_mail(email_receiver, subject, body):
         connection.sendmail(email_sender, email_receiver, em.as_string())
 
 
-def send_message(set_time, cid):
+def send_message(set_time, cid, expiry_date):
     print("started")
-    while True:
+    while datetime.now().strftime("%Y-%m-%d") != expiry_date:
         send_url = "https://discord.com/api/v9/channels/{}/messages"
         send_payload = {
             'content': f"{team}"
@@ -47,7 +47,7 @@ def send_message(set_time, cid):
         while checktime:
             tz_NY = pytz.timezone('Asia/Kolkata')
             current_time = datetime.now(tz_NY).strftime("%H:%M:%S")
-            if current_time == set_time:
+            if current_time == set_time or True:
                 while issent:
                     response = requests.post(send_url.format(cid), data=send_payload, headers=send_header)
                     if len(response.json()) < 5:
@@ -58,8 +58,8 @@ def send_message(set_time, cid):
                         print("Message sent successfully!")
 
 
-def receive_message(set_time, number, cid):
-    while True:
+def receive_message(set_time, number, cid, expiry_date):
+    while datetime.now().strftime("%Y-%m-%d") != expiry_date:
         current_date = datetime.now().strftime("%Y:%m:%d")
         recv_url = f"https://discord.com/api/v9/channels/{cid}/messages?limit=50"
         recv_header = {
@@ -114,24 +114,22 @@ contents = []
 # send_message("13:57:00", "991611117518454784")
 # receive_message("14:53:00", 1, "710080535116120080")
 
-p1 = multiprocessing.Process(target=send_message, args=("10:59:00", "894092194363883561"))
-p2 = multiprocessing.Process(target=send_message, args=("11:09:00", "894147192267362334"))
-p3 = multiprocessing.Process(target=send_message, args=("11:19:00", "894092196054196264"))
-p4 = multiprocessing.Process(target=send_message, args=("11:29:00", "894092197111148584"))
-p5 = multiprocessing.Process(target=send_message, args=("11:39:00", "894092198050689094"))
-p6 = multiprocessing.Process(target=send_message, args=("11:49:00", "894092199338336286"))
-p7 = multiprocessing.Process(target=send_message, args=("11:59:00", "894092200311402536"))
-p8 = multiprocessing.Process(target=send_message, args=("12:09:00", "894147313856036865"))
+p1 = multiprocessing.Process(target=send_message, args=("10:59:00", "992328416793727036", "2022-07-02"))
+# p2 = multiprocessing.Process(target=send_message, args=("11:09:00", "894147192267362334"))
+# p3 = multiprocessing.Process(target=send_message, args=("11:19:00", "894092196054196264"))
+# p4 = multiprocessing.Process(target=send_message, args=("11:29:00", "894092197111148584"))
+# p5 = multiprocessing.Process(target=send_message, args=("11:39:00", "894092198050689094"))
+# p6 = multiprocessing.Process(target=send_message, args=("11:49:00", "894092199338336286"))
+# p7 = multiprocessing.Process(target=send_message, args=("11:59:00", "894092200311402536"))
+# p8 = multiprocessing.Process(target=send_message, args=("12:09:00", "894147313856036865"))
 
 
 if __name__ == '__main__':
     p1.start()
-    p2.start()
-    p3.start()
-    p4.start()
-    p5.start()
-    p6.start()
-    p7.start()
-    p8.start()
-
-
+    # p2.start()
+    # p3.start()
+    # p4.start()
+    # p5.start()
+    # p6.start()
+    # p7.start()
+    # p8.start()

@@ -47,7 +47,7 @@ def send_message(set_time, cid, expiry_date):
         while checktime:
             tz_NY = pytz.timezone('Asia/Kolkata')
             current_time = datetime.now(tz_NY).strftime("%H:%M:%S")
-            if current_time == set_time or True:
+            if current_time == set_time:
                 while issent:
                     response = requests.post(send_url.format(cid), data=send_payload, headers=send_header)
                     if len(response.json()) < 5:
